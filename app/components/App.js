@@ -1,5 +1,4 @@
 import React from 'react'
-import PasswordInput from './PasswordInput'
 
 export default class App extends React.Component {
 

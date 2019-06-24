@@ -5,6 +5,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from './components/App'
+import AppRouter from './routers/AppRouter'
 
 const render = Component => {
   ReactDom.render(
@@ -15,11 +16,11 @@ const render = Component => {
   )
 }
 
-render(App)
+render(AppRouter)
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    render(App)
+  module.hot.accept('./routers/AppRouter', () => {
+    render(AppRouter)
   })
 }
 
