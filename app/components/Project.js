@@ -2,8 +2,9 @@ import React from "react";
 
 const Project = (props) => (
   <div>
-    #Project
-    <p>{props.projectText}</p>
+    <h4>{props.name}</h4>
+    <p>{props.tools}</p>
+    <p>{props.desc}</p>
   </div>
 );
 

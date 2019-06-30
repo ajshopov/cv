@@ -7,7 +7,7 @@ export default class Filter extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="filter">
         <h5>Filter</h5>
         <label>filter: </label>
         <input
