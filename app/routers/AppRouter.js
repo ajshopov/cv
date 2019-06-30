@@ -11,7 +11,6 @@ const AppRouter = () => (
       <Route exact path="/" component={Home} />
       <Route path="/portfolio" component={Portfolio} />
     </Switch>
-    <p>test</p>
   </BrowserRouter>
 );
 
