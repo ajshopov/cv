@@ -2,6 +2,7 @@
   "name": "cv",
   "version": "1.0.0",
   "repository": "https://github.com/ajshopov/cv.git",
+  "homepage": "https://ajshopov.github.io/cv/",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
