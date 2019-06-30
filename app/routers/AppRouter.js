@@ -5,7 +5,7 @@ import Home from "../components/Home";
 import Portfolio from "../components/Portfolio";
 
 const AppRouter = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename="/cv">
     <Header />
     <Switch>
       <Route exact path="/" component={Home} />
