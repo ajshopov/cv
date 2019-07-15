@@ -12,7 +12,7 @@ export default class Filter extends React.Component {
         <label>filter: </label>
         <input
           type="text"
-          // value={this.props.selectedProjects}
+          value={this.props.filterField}
           onChange={(e) => {
             console.log(e.target.value)
             this.handleChange(e.target.value);
