@@ -38,7 +38,10 @@ const Header = () => {
         <MenuItem onClick={handleClose}>
           <NavLink to="/portfolio">Portfolio</NavLink>
         </MenuItem>
-        </Menu>
+        <MenuItem onClick={handleClose}>
+          <NavLink to="/books">Books</NavLink>
+        </MenuItem>
+      </Menu>
     </header>
   );
 };

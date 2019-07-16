@@ -3,18 +3,38 @@ import Project from "./Project";
 import projectData from "../../lib/projectData";
 import Filter from "./Filter";
 import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import { RadioGroup, Radio } from 'react-radio-group'
 
 const styles = {
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
+    // color: '#f3f3f3'
   },
   paper: {
     // padding: theme.spacing(2),
-    textAlign: 'center',
+    // textAlign: 'center',
     // color: theme.palette.text.secondary,
-  }
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
 };
 
 
@@ -73,17 +93,39 @@ class Portfolio extends React.Component {
             </label>
           )}
         </RadioGroup>
-        <Grid container spacing={3}>
-          {filteredItems.map((project, index) =>
-            <Grid item xs={4} sm={6} key={index}>
-              <Project 
-                name={project.name}
-                tools={project.tools}
-                desc={project.description}
-              />
-            </Grid>
-          )}
-        </Grid>
+        <Container className={classes.cardGrid} maxWidth="md">
+          <Grid container spacing={3}>
+            {filteredItems.map((project, index) =>
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card className={classes.card}>
+                  <CardHeader title={project.name}/>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Project
+                      name={project.name}
+                      tools={project.tools}
+                      desc={project.description}
+                    />
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      <Link href="https://github.com/ajshopov">
+                        Link
+                      </Link>
+                    </Button>
+                    <Button size="small" color="primary">
+                      Source Code
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            )}
+          </Grid>
+        </Container>
       </div>
     )
   }
