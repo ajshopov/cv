@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,7 +18,9 @@ const Header = () => {
 
   return(
     <header>
-      <h1>Alex Shopov</h1>
+      <Typography component="h1" variant="h2" align="center" gutterBottom>
+        Alex Shopov
+      </Typography>
       <Button 
         aria-controls="simple-menu"
         aria-haspopup="true"
