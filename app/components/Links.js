@@ -3,7 +3,7 @@ import React from "react";
 const Links = () => (
   <div>
     Links
-    <p>Links to go here</p>
+    <p>Links and tools to go here</p>
   </div>
 );
 

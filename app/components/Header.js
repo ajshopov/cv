@@ -1,7 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from '@material-ui/styles';
-import { Button, Container, Toolbar, Menu, MenuItem, Typography } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Container from '@material-ui/core/Container';
+import Toolbar from '@material-ui/core/Toolbar';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   toolbar: {
