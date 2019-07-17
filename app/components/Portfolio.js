@@ -78,7 +78,8 @@ class Portfolio extends React.Component {
   }
   
   render(){
-    const { classes } = this.props;
+    const { classes } = this.props
+    console.log(this.props)
     console.log(this.state.projects)
     // console.log(this.state)
     const { tags, filteredItems } = this.state;

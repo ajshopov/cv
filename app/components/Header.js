@@ -1,11 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/styles';
+import { Button, Container, Toolbar, Menu, MenuItem, Typography } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  toolbar: {
+    justifyContent: 'space-between'
+  },
+  toolbarLink: {
+    // padding: theme.spacing(1),
+    flexShrink: 0,
+  }
+})
 
 const Header = () => {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -44,7 +53,18 @@ const Header = () => {
         <MenuItem onClick={handleClose}>
           <NavLink to="/books">Books</NavLink>
         </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <NavLink to="/links">Links</NavLink>
+        </MenuItem>
       </Menu>
+      <Container maxWidth="xs">
+        <Toolbar component="nav" className={classes.toolbar}>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/portfolio">Portfolio</NavLink>
+          <NavLink to="/books">Books</NavLink>
+          <NavLink to="/links">Links</NavLink>
+        </Toolbar>
+      </Container>
     </header>
   );
 };

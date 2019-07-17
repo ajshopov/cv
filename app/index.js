@@ -1,5 +1,5 @@
 import 'react-hot-loader/patch'
-import 'typeface-roboto';
+import 'typeface-roboto'
 require('./style.css')
 
 import React from 'react'
