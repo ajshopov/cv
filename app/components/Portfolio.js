@@ -60,21 +60,32 @@ class Portfolio extends React.Component {
   }
 
   updateResults = (text) => {
+    
     let results = this.state.projects.filter(project => {
       // console.log("search text", text)
       // console.log("proj", project.name.toLowerCase())
+      // let numberOfWordsInSearch = text.trim().split(' ').length;
+      // console.log('numberOfWordsInSearch', numberOfWordsInSearch)
+      // let regex = new RegExp(`${text.toLowerCase().trim().split(' ').join('|')}`);
+      let setup = text.toLowerCase().trim().split(' ').map((term) => `(?=.*${term})`).join('');
+      let regexA = new RegExp(`${setup}.+`);
+      // console.log(Object.values(project).slice(0,4))
+      const allTextContent = Object.values(project).slice(0,4).map((p) => p.toLowerCase()).join(' ')
+      // return allTextContent.includes(text.toLowerCase()); // old method
+      // console.log("nuregex", regexA.test(allTextContent))
+      // console.log("test", regex.test(allTextContent))
+      // console.log("original", allTextContent.includes(text.toLowerCase()))
 
-      const allTextFields = Object.values(project).map((p) => p.toLowerCase()).join(' ')
-      return allTextFields.includes(text.toLowerCase())
+      return regexA.test(allTextContent);
     })
-    console.log(results)
+    console.log('results', results)
     this.setState(() => ({ filteredItems: results }))
   }
   
   render(){
     const { classes } = this.props
-    console.log(this.props)
-    console.log(this.state.projects)
+    // console.log(this.props)
+    // console.log(this.state.projects)
     // console.log(this.state)
     const { tags, filteredItems } = this.state;
     return (
@@ -96,6 +107,8 @@ class Portfolio extends React.Component {
                 tools={project.tools}
                 desc={project.description}
                 image={project.image}
+                link={project.link}
+                source={project.source}
                 key={index}
               />
             )}

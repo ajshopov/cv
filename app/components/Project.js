@@ -40,31 +40,35 @@ const Project = (props) => {
   return(
     <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
-        <CardActionArea>
+        <CardActionArea href={props.link}>
           <CardMedia
             className={classes.cardMedia}
             image={props.image}
             title="Image title"
           />
-          <Divider/>
-          <CardContent className={classes.cardContent}>
-            <Typography variant="h5" component="h3" gutterBottom>
-              {props.name}
-            </Typography>
-            <Typography variant="body1">
-              <b>Tools:</b> {props.tools}
-              <b></b>{props.desc}
-            </Typography>
-          </CardContent>
         </CardActionArea>
+        <Divider/>
+        <CardContent className={classes.cardContent}>
+          <Typography variant="h5" component="h3" gutterBottom>
+            {props.name}
+          </Typography>
+          <Typography>
+            <b>Tools:</b> {props.tools}
+          </Typography>
+          <Typography>
+            <b>About:</b> {props.desc}
+          </Typography>
+        </CardContent>
         <CardActions>
           <Button size="small" color="primary">
-            <Link href="https://github.com/ajshopov">
+            <Link href={props.link}>
               Link
             </Link>
           </Button>
           <Button size="small" color="primary">
-            Source Code
+            <Link href={props.source}>
+              Source Code
+            </Link>
           </Button>
         </CardActions>
       </Card>

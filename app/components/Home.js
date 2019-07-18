@@ -11,6 +11,7 @@ const Home = () => (
     </Container>
     <Typography variant="body1">
       Contact details here
+      Links to github, linkedin
     </Typography>
   </div>
 

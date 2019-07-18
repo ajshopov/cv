@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Home from "../components/Home";
 import Portfolio from "../components/Portfolio";
 import Books from "../components/Books";
+import NotFoundPage from "../components/NotFoundPage";
 import Links from "../components/Links";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -16,6 +17,7 @@ const AppRouter = () => (
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/books" component={Books} />
       <Route path="/links" component={Links} />
+      <Route component={NotFoundPage} />
     </Switch>
   </HashRouter>
 );
