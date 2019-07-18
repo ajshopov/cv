@@ -17,12 +17,14 @@ const Links = () => (
         {Urls.map((listing, index) => {
           return(
             <ListItem key={index}>
-              <ListItemIcon><Label /></ListItemIcon>
+              <ListItemIcon>
+                <Label />
+              </ListItemIcon>
               <Link href={listing.linkUrl} rel="noopener noreferrer" target="_blank">
                 {listing.title}
               </Link>
             </ListItem>
-          )
+          );
         })}
       </List>
   </Container>

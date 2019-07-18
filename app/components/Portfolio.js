@@ -88,7 +88,7 @@ class Portfolio extends React.Component {
             </label>
           )}
         </RadioGroup>
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           <Grid container spacing={3}>
             {filteredItems.map((project, index) =>
               <Project
