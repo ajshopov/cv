@@ -95,7 +95,6 @@ class Portfolio extends React.Component {
                 name={project.name}
                 tools={project.tools}
                 desc={project.description}
-                imglink={project.imglink}
                 image={project.image}
                 key={index}
               />
