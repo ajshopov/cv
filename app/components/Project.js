@@ -10,11 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 
-
-import strava from '../images/chrome_9dqA9NTKTI.jpg';
-import worm from '../images/chrome_7VrVtR8vY3.png';
-
-
 const useStyles = makeStyles({
   root: {
     // flexGrow: 1,
@@ -46,7 +41,7 @@ const Project = (props) => {
         <CardMedia
           className={classes.cardMedia}
           component="img"
-          src={strava}
+          src={props.image}
           title="Image title"
         />
         <CardContent className={classes.cardContent}>
