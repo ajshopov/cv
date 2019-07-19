@@ -7,7 +7,6 @@ import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import { RadioGroup, Radio } from 'react-radio-group';
 
-
 const styles = {
   root: {
     // flexGrow: 1,
@@ -31,12 +30,25 @@ const styles = {
   },
 };
 
+const tags = [
+  'API',
+  'General Assembly',
+  'Scss',
+  'RSpec',
+  'Ruby',
+  'Rails',
+  'Javascript',
+  'jQuery',
+  'React',
+  'Oauth'
+];
+
 
 class Portfolio extends React.Component {
   state = {
     projects: projectData,
     filteringText: '',
-    tags: ['general assembly', 'api'],
+    tags: tags,
     selectedOption: false,
     filteredItems: projectData
   }
@@ -90,8 +102,6 @@ class Portfolio extends React.Component {
     const { tags, filteredItems } = this.state;
     return (
       <div className={classes.root}>
-        <Filter filterField={this.state.filteringText} handleTextFilter={this.handleTextFilter}/>
-        <button onClick={this.clearFilters}>clear</button>
         <RadioGroup name="tags" value={this.state.radioOption} onChange={this.handleRadioButtons} className="tags">
           {tags.map((tag) => 
             <label key={tag}>
@@ -99,6 +109,11 @@ class Portfolio extends React.Component {
             </label>
           )}
         </RadioGroup>
+        <Filter
+          filterField={this.state.filteringText}
+          handleTextFilter={this.handleTextFilter}
+          clearFilter={this.clearFilters}
+        />
         <Container className={classes.cardGrid} maxWidth="lg">
           <Grid container spacing={3}>
             {filteredItems.map((project, index) =>
