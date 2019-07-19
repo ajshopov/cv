@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   button: {
-    margin: "8px 4px",
+    margin: "4px 8px",
     verticalAlign: "bottom"
   }
 }

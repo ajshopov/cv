@@ -40,7 +40,9 @@ const tags = [
   'Javascript',
   'jQuery',
   'React',
-  'Oauth'
+  'Redux',
+  'Oauth',
+  'Game'
 ];
 
 
