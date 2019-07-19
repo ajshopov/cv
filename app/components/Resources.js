@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/Container";
 import Label from '@material-ui/icons/LabelImportant';
 
-const Links = () => (
+const Resources = () => (
   <Container>
     <Typography gutterBottom>
       A collection of links to resources, tools and articles that I've found useful.
@@ -30,4 +30,4 @@ const Links = () => (
   </Container>
 );
 
-export default Links;
+export default Resources;
