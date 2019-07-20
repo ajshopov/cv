@@ -5,21 +5,22 @@ import Filter from "./Filter";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 
 const styles = {
   root: {
     // flexGrow: 1,
     // color: '#f3f3f3'
-  },
-  paper: {
-    // padding: theme.spacing(2),
-    // textAlign: 'center',
-    // color: theme.palette.text.secondary,
   },
   card: {
     height: '100%',
@@ -32,6 +33,9 @@ const styles = {
   cardContent: {
     flexGrow: 1,
   },
+  radioList: {
+    display: 'inline'
+  }
 };
 
 const tags = [
@@ -56,7 +60,8 @@ class Portfolio extends React.Component {
     filteringText: '',
     tags: tags,
     selectedOption: false,
-    filteredItems: projectData
+    filteredItems: projectData,
+    listOpen: false
   }
 
   handleRadioButtons = (event) => {
@@ -101,6 +106,11 @@ class Portfolio extends React.Component {
     console.log('results', results)
     this.setState(() => ({ filteredItems: results }))
   }
+
+  handleListToggle = () => {
+    this.setState(() => ({ listOpen: !this.state.listOpen }));
+    console.log(this.state.listOpen)
+  }
   
   render(){
     const { classes } = this.props
@@ -110,7 +120,7 @@ class Portfolio extends React.Component {
     const { tags, filteredItems } = this.state;
     return (
       <div className={classes.root}>
-        <Box component="span" m={1}>
+        <List disablePadding>
           <FormControl component="fieldset">
             <RadioGroup
               aria-label="Gender"
@@ -118,38 +128,43 @@ class Portfolio extends React.Component {
               value={this.state.radioOption || ''}
               onChange={this.handleRadioButtons}
             >
-              {tags.map((tag) => 
-                <FormControlLabel
-                  value={tag}
-                  control={<Radio />}
-                  label={tag}
-                  labelPlacement="end"
-                  key={tag}
-                />
-              )}
+              <ListItem button onClick={this.handleListToggle}>
+                <ListItemText primary="Show all filters" />
+                {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
+                {tags.map((tag) => 
+                  <ListItem key={tag} dense className={classes.radioList}>
+                    <FormControlLabel
+                      value={tag}
+                      control={<Radio />}
+                      label={tag}
+                      labelPlacement="end"
+                    />
+                  </ListItem>
+                )}
+              </Collapse>
             </RadioGroup>
           </FormControl>
-        </Box>
+        </List>
         <Filter
           filterField={this.state.filteringText}
           handleTextFilter={this.handleTextFilter}
           clearFilter={this.clearFilters}
         />
-        <Container className={classes.cardGrid} maxWidth="lg">
-          <Grid container spacing={3}>
-            {filteredItems.map((project, index) =>
-              <Project
-                name={project.name}
-                tools={project.tools}
-                desc={project.description}
-                image={project.image}
-                link={project.link}
-                source={project.source}
-                key={index}
-              />
-            )}
-          </Grid>
-        </Container>
+        <Grid container spacing={3}>
+          {filteredItems.map((project, index) =>
+            <Project
+              name={project.name}
+              tools={project.tools}
+              desc={project.description}
+              image={project.image}
+              link={project.link}
+              source={project.source}
+              key={index}
+            />
+          )}
+        </Grid>
       </div>
     )
   }

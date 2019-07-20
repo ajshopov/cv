@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Search from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
 
 const styles = {
   button: {
@@ -20,10 +21,10 @@ class Filter extends React.Component {
   render(){
     const { classes } = this.props
     return (
-      <div>
+      <Container>
         <TextField
           id="standard-name"
-          label="Filter"
+          label="Search"
           className=""
           value={this.props.filterField}
           onChange={(e) => {
@@ -46,7 +47,7 @@ class Filter extends React.Component {
         >
           Clear
         </Button>
-      </div>
+      </Container>
     );
   }
 }
