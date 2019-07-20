@@ -1,33 +1,35 @@
 import React from "react";
-import Urls from "../../lib/linksPage";
+import urls from "../../lib/Resources";
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
-import Container from "@material-ui/core/Container";
+import ListItemText from '@material-ui/core/ListItemText';
 import Label from '@material-ui/icons/LabelImportant';
 
 const Resources = () => (
-  <Container>
+  <div>
     <Typography gutterBottom>
       A collection of links to resources, tools and articles that I've found useful.
     </Typography>
       <List>
-        {Urls.map((listing, index) => {
+        {urls.map((listing, index) => {
           return(
             <ListItem key={index}>
               <ListItemIcon>
                 <Label />
               </ListItemIcon>
-              <Link href={listing.linkUrl} rel="noopener noreferrer" target="_blank">
-                {listing.title}
-              </Link>
+              <ListItemText
+                primary={<Link href={listing.linkUrl} rel="noopener noreferrer" target="_blank">
+                  {listing.title}
+                </Link>}
+              />
             </ListItem>
           );
         })}
       </List>
-  </Container>
+  </div>
 );
 
 export default Resources;

@@ -39,16 +39,19 @@ const styles = {
 };
 
 const tags = [
-  'API',
+  'Adelphi Digital',
   'General Assembly',
+  'Javascript',
+  'Material-UI',
+  'Materializecss',
   'Scss',
+  'React',
+  'Redux',
   'RSpec',
   'Ruby',
   'Rails',
-  'Javascript',
   'jQuery',
-  'React',
-  'Redux',
+  'API',
   'Oauth',
   'Game'
 ];
