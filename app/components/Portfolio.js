@@ -5,7 +5,11 @@ import Filter from "./Filter";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
-import { RadioGroup, Radio } from 'react-radio-group';
+import Box from '@material-ui/core/Box';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 const styles = {
   root: {
@@ -55,11 +59,13 @@ class Portfolio extends React.Component {
     filteredItems: projectData
   }
 
-  handleRadioButtons = (value) => {
+  handleRadioButtons = (event) => {
+    console.log("value", event.target.value)
+    event.persist();
     this.setState(() => (
-      {filteringText: value, radioOption: value }
+      {filteringText: event.target.value, radioOption: event.target.value }
     ))
-    this.updateResults(value)
+    this.updateResults(event.target.value)
   }
 
   handleTextFilter = (text) => {
@@ -104,13 +110,26 @@ class Portfolio extends React.Component {
     const { tags, filteredItems } = this.state;
     return (
       <div className={classes.root}>
-        <RadioGroup name="tags" value={this.state.radioOption} onChange={this.handleRadioButtons} className="tags">
-          {tags.map((tag) => 
-            <label key={tag}>
-              <Radio value={tag} checked={this.state.radioOption === tag}/> {tag}
-            </label>
-          )}
-        </RadioGroup>
+        <Box component="span" m={1}>
+          <FormControl component="fieldset">
+            <RadioGroup
+              aria-label="Gender"
+              name="gender1"
+              value={this.state.radioOption || ''}
+              onChange={this.handleRadioButtons}
+            >
+              {tags.map((tag) => 
+                <FormControlLabel
+                  value={tag}
+                  control={<Radio />}
+                  label={tag}
+                  labelPlacement="end"
+                  key={tag}
+                />
+              )}
+            </RadioGroup>
+          </FormControl>
+        </Box>
         <Filter
           filterField={this.state.filteringText}
           handleTextFilter={this.handleTextFilter}
