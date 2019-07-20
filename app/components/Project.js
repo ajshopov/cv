@@ -65,11 +65,13 @@ const Project = (props) => {
               Link
             </Link>
           </Button>
-          <Button size="small" color="primary">
-            <Link href={props.source}>
-              Source Code
-            </Link>
-          </Button>
+          {props.source !== '' &&
+            <Button size="small" color="primary">
+              <Link href={props.source}>
+                Source Code
+              </Link>
+            </Button>
+          }
         </CardActions>
       </Card>
     </Grid>

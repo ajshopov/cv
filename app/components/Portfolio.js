@@ -3,7 +3,6 @@ import Project from "./Project";
 import projectData from "../../lib/projectData";
 import Filter from "./Filter";
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -11,7 +10,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -35,6 +33,9 @@ const styles = {
   },
   radioList: {
     display: 'inline'
+  },
+  list: {
+    marginBottom: '32px'
   }
 };
 
@@ -123,7 +124,12 @@ class Portfolio extends React.Component {
     const { tags, filteredItems } = this.state;
     return (
       <div className={classes.root}>
-        <List disablePadding>
+        <Filter
+          filterField={this.state.filteringText}
+          handleTextFilter={this.handleTextFilter}
+          clearFilter={this.clearFilters}
+        />
+        <List disablePadding className={classes.list}>
           <FormControl component="fieldset">
             <RadioGroup
               aria-label="Gender"
@@ -150,11 +156,6 @@ class Portfolio extends React.Component {
             </RadioGroup>
           </FormControl>
         </List>
-        <Filter
-          filterField={this.state.filteringText}
-          handleTextFilter={this.handleTextFilter}
-          clearFilter={this.clearFilters}
-        />
         <Grid container spacing={3}>
           {filteredItems.map((project, index) =>
             <Project

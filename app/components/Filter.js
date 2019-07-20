@@ -4,9 +4,11 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Search from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
-import Container from "@material-ui/core/Container";
 
 const styles = {
+  root: {
+    padding: '0 16px'
+  },
   button: {
     margin: "4px 8px",
     verticalAlign: "bottom"
@@ -21,7 +23,7 @@ class Filter extends React.Component {
   render(){
     const { classes } = this.props
     return (
-      <Container>
+      <div className={classes.root}>
         <TextField
           id="standard-name"
           label="Search"
@@ -47,7 +49,7 @@ class Filter extends React.Component {
         >
           Clear
         </Button>
-      </Container>
+      </div>
     );
   }
 }
