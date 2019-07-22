@@ -40,21 +40,24 @@ const styles = {
 };
 
 const tags = [
-  'Adelphi Digital',
-  'General Assembly',
+  'SCSS',
+  'MaterializeCSS',
+  'Jade',
+  'Slim',
   'Javascript',
-  'Material-UI',
-  'Materializecss',
-  'Scss',
+  'jQuery',
+  'Webpack',
   'React',
   'Redux',
-  'RSpec',
   'Ruby',
   'Rails',
-  'jQuery',
+  'RSpec',
+  'Adelphi Digital',
+  'General Assembly',
   'API',
-  'Oauth',
-  'Game'
+  'OAuth',
+  'Game',
+  'PostgreSQL'
 ];
 
 
