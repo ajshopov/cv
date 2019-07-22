@@ -15,10 +15,7 @@ const Home = () => (
       </Typography>
     </Container>
     <Typography style={{ marginBottom: '32px' }}>
-      ABOUT ME: 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum leo id egestas vestibulum. Sed quis dui non felis molestie commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent viverra leo at lectus finibus maximus. Duis laoreet neque at diam auctor, ac lobortis felis gravida. In maximus eu orci et convallis. Quisque fringilla in sapien eget fermentum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum leo id egestas vestibulum. Sed quis dui non felis molestie commodo.
-    </Typography>
+      About Me: About Me: originally working as an engineer in the mining industry, I’ve transitioned into web development through a mix of self-directed learning, a General Assembly bootcamp, and as a front-end developer at Adelphi Digital. My personal goal as a web developer is to combine my interests in productivity, data, and continuous learning to improve the delivery of information through great web interfaces.    </Typography>
     <Container maxWidth="xs">
       <Toolbar component="nav" style={{ justifyContent: 'space-around' }}>
         <Link 
