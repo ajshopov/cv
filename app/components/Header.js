@@ -16,6 +16,9 @@ const useStyles = makeStyles({
   },
   hero: {
     padding: '32px 0'
+  },
+  active: {
+    fontWeight: 'bold'
   }
 })
 
@@ -39,10 +42,10 @@ const Header = () => {
       <Divider/>
       <Container maxWidth="xs">
         <Toolbar component="nav" variant="dense" className={classes.toolbar}>
-          <Link component={RouteLink} color="inherit" to="/">Home</Link>
-          <Link component={RouteLink} color="inherit" to="/portfolio">Portfolio</Link>
-          <Link component={RouteLink} color="inherit" to="/resources">Resources</Link>
-          <Link component={RouteLink} color="inherit" to="/booklist">Booklist</Link>
+          <Link component={RouteLink} color="inherit" activeClassName={classes.active} exact to="/">Home</Link>
+          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/portfolio">Portfolio</Link>
+          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/resources">Resources</Link>
+          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/booklist">Booklist</Link>
         </Toolbar>
       </Container>
       <Divider/>
