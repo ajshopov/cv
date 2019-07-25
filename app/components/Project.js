@@ -61,13 +61,20 @@ const Project = (props) => {
         </CardContent>
         <CardActions>
           <Button size="small" color="primary">
-            <Link href={props.link}>
+            <Link 
+              rel="noopener noreferrer"
+              target="_blank"
+              href={props.link}
+            >
               Link
             </Link>
           </Button>
           {props.source !== '' &&
             <Button size="small" color="primary">
-              <Link href={props.source}>
+              <Link 
+              rel="noopener noreferrer"
+              target="_blank"
+              href={props.source}>
                 Source Code
               </Link>
             </Button>

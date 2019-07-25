@@ -12,7 +12,10 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const outerTheme = createMuiTheme({
   typography: {
-    fontFamily: "'Crimson Text', serif"
+    fontFamily: "'Crimson Text', serif",
+    body1: {
+      fontSize: '1.25rem'
+    }
   },
   palette: {
     background: {
