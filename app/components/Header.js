@@ -2,22 +2,37 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
+import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles({
   toolbar: {
     justifyContent: 'space-between'
   },
   header: {
-    marginBottom: '32px'
+    margin: '32px auto'
   },
   hero: {
-    padding: '32px 0'
+    backgroundColor: '#F7FAFB',
+    fontFamily: "'Nunito', sans-serif",
+    textTransform: "uppercase",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    padding: '0 16px'
   },
   active: {
+    fontWeight: 'bold'
+  },
+  icons: {
+  },
+  title: {
+    fontSize: '18px',
     fontWeight: 'bold'
   }
 })
@@ -30,26 +45,43 @@ const RouteLink = React.forwardRef((props, ref) => (
 const Header = () => {
   const classes = useStyles();
   return(
-    <header className={classes.header}>
-      <div className={classes.hero}>
-        <Typography component="h1" variant="h2" align="center">
+    <Container maxWidth="lg" className={classes.header}>
+      <Box className={classes.hero}>
+        <Typography component="h1" variant="h5" align="center" className={classes.title}>
           Alex Shopov
         </Typography>
-        <Typography variant="h4" align="center">
-          Web Developer
-        </Typography>
-      </div>
-      <Divider/>
-      <Container maxWidth="xs">
-        <Toolbar component="nav" variant="dense" className={classes.toolbar}>
-          <Link component={RouteLink} color="inherit" activeClassName={classes.active} exact to="/">Home</Link>
-          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/portfolio">Portfolio</Link>
-          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/resources">Resources</Link>
-          <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/booklist">Booklist</Link>
-        </Toolbar>
-      </Container>
-      <Divider/>
-    </header>
+        <Container maxWidth="xs">
+          <Toolbar component="nav" className={classes.toolbar}>
+            <Link component={RouteLink} color="inherit" activeClassName={classes.active} exact to="/">Home</Link>
+            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/portfolio">Portfolio</Link>
+            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/resources">Resources</Link>
+            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/booklist">Booklist</Link>
+          </Toolbar>
+        </Container>
+        <Box className={classes.icons}>
+          <Link
+            href="https://www.linkedin.com/in/alexshopov/"
+            rel="noopener noreferrer"
+            target="_blank"
+            color="inherit"
+          >
+            <span style={{ fontSize: '1.5em' }}>
+              <FontAwesomeIcon icon={faLinkedin} />
+            </span>
+          </Link>
+          <Link
+            href="https://github.com/ajshopov"
+            rel="noopener noreferrer"
+            target="_blank"
+            color="inherit"
+          >
+            <span style={{ fontSize: '1.5em', marginLeft: '0.5em'}}>
+              <FontAwesomeIcon icon={faGithub} />
+            </span>
+          </Link>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 
