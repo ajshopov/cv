@@ -12,28 +12,63 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles({
   toolbar: {
-    justifyContent: 'space-between'
+    display: 'flex',
+    justifyContent: 'space-between',
+    '@media (max-width: 499px)': {
+      padding: '0'
+    }
   },
   header: {
-    margin: '32px auto'
+    margin: '32px auto 64px',
+    '@media (max-width: 819px)': {
+      padding: '0'
+    }
   },
-  hero: {
+  nav: {
     backgroundColor: '#F7FAFB',
     fontFamily: "'Nunito', sans-serif",
     textTransform: "uppercase",
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'baseline',
-    padding: '0 16px'
+    padding: '0 32px',
+    '@media (max-width: 819px)': {
+      padding: '0 24px'
+    },
+    '@media (max-width: 399px)': {
+      padding: '0'
+    }
   },
   active: {
     fontWeight: 'bold'
   },
   icons: {
+    flex: '1',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    '@media (max-width: 749px)': {
+      position: 'absolute',
+      top: '2px',
+      right: '24px'
+    }
   },
   title: {
     fontSize: '18px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    flex: '1',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    padding: '0',
+    fontFamily: "'Nunito', sans-serif",
+    '@media (max-width: 749px)': {
+      position: 'absolute',
+      top: '5px',
+      left: '24px'
+    }
+  },
+  home: {
+    '@media (max-width: 799px)': {
+      display: "none"
+    }
   }
 })
 
@@ -46,13 +81,15 @@ const Header = () => {
   const classes = useStyles();
   return(
     <Container maxWidth="lg" className={classes.header}>
-      <Box className={classes.hero}>
-        <Typography component="h1" variant="h5" align="center" className={classes.title}>
-          Alex Shopov
+      <Box className={classes.nav}>
+        <Typography component="h1" variant="h5" className={classes.title}>
+          <Link component={RouteLink} underline="none" color="inherit" exact to="/">
+            Alex Shopov
+          </Link>
         </Typography>
         <Container maxWidth="xs">
           <Toolbar component="nav" className={classes.toolbar}>
-            <Link component={RouteLink} color="inherit" activeClassName={classes.active} exact to="/">Home</Link>
+            <Link component={RouteLink} color="inherit" className={classes.home} activeClassName={classes.active} exact to="/">Home</Link>
             <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/portfolio">Portfolio</Link>
             <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/resources">Resources</Link>
             <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/booklist">Booklist</Link>
@@ -75,7 +112,7 @@ const Header = () => {
             target="_blank"
             color="inherit"
           >
-            <span style={{ fontSize: '1.5em', marginLeft: '0.5em'}}>
+            <span style={{ fontSize: '1.5em', marginLeft: '1em'}}>
               <FontAwesomeIcon icon={faGithub} />
             </span>
           </Link>
