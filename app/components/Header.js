@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     margin: '32px auto 64px',
     '@media (max-width: 819px)': {
       padding: '0'
+    },
+    '@media (max-width: 749px)': {
+      margin: '64px auto 32px'
     }
   },
   nav: {
@@ -47,7 +50,7 @@ const useStyles = makeStyles({
     justifyContent: 'flex-end',
     '@media (max-width: 749px)': {
       position: 'absolute',
-      top: '2px',
+      top: '16px',
       right: '24px'
     }
   },
@@ -61,7 +64,7 @@ const useStyles = makeStyles({
     fontFamily: "'Nunito', sans-serif",
     '@media (max-width: 749px)': {
       position: 'absolute',
-      top: '5px',
+      top: '20px',
       left: '24px'
     }
   },

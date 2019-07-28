@@ -15,6 +15,9 @@ const outerTheme = createMuiTheme({
     fontFamily: "'Crimson Text', serif",
     body1: {
       fontSize: '1.25rem'
+    },
+    h3: {
+      lineHeight: '4rem'
     }
   },
   palette: {

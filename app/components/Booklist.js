@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
   intro: {
     '@media (max-width: 599px)': {
-      fontSize: '20px'
+      fontSize: '1.25rem'
     }
   },
   booklist: {
@@ -47,7 +47,7 @@ const Booklist = () => {
     <main>
       <Container maxWidth="xl" className={classes.blue}>
         <Container maxWidth="sm" className={classes.hero}>
-          <Typography variant="h4" className={classes.header}>
+          <Typography component="h2" variant="h3" className={classes.header}>
             Books
           </Typography>
           <Typography variant="h5" className={classes.intro}>
