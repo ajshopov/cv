@@ -147,51 +147,53 @@ class Portfolio extends React.Component {
             </Typography>
           </Container>
         </Container>
-        <Filter
-          filterField={this.state.filteringText}
-          handleTextFilter={this.handleTextFilter}
-          clearFilter={this.clearFilters}
-        />
-        <List disablePadding className={classes.list}>
-          <FormControl component="fieldset">
-            <RadioGroup
-              aria-label="Gender"
-              name="gender1"
-              value={this.state.radioOption || ''}
-              onChange={this.handleRadioButtons}
-            >
-              <ListItem button onClick={this.handleListToggle}>
-                <ListItemText primary="Show all filters" />
-                {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
-                {tags.map((tag) => 
-                  <ListItem key={tag} dense className={classes.radioList}>
-                    <FormControlLabel
-                      value={tag}
-                      control={<Radio />}
-                      label={tag}
-                      labelPlacement="end"
-                    />
-                  </ListItem>
-                )}
-              </Collapse>
-            </RadioGroup>
-          </FormControl>
-        </List>
-        <Grid container spacing={3}>
-          {filteredItems.map((project, index) =>
-            <Project
-              name={project.name}
-              tools={project.tools}
-              desc={project.description}
-              image={project.image}
-              link={project.link}
-              source={project.source}
-              key={index}
-            />
-          )}
-        </Grid>
+        <Container>
+          <Filter
+            filterField={this.state.filteringText}
+            handleTextFilter={this.handleTextFilter}
+            clearFilter={this.clearFilters}
+          />
+          <List disablePadding className={classes.list}>
+            <FormControl component="fieldset">
+              <RadioGroup
+                aria-label="Gender"
+                name="gender1"
+                value={this.state.radioOption || ''}
+                onChange={this.handleRadioButtons}
+              >
+                <ListItem button onClick={this.handleListToggle}>
+                  <ListItemText primary="Show all filters" />
+                  {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
+                  {tags.map((tag) => 
+                    <ListItem key={tag} dense className={classes.radioList}>
+                      <FormControlLabel
+                        value={tag}
+                        control={<Radio />}
+                        label={tag}
+                        labelPlacement="end"
+                      />
+                    </ListItem>
+                  )}
+                </Collapse>
+              </RadioGroup>
+            </FormControl>
+          </List>
+          <Grid container spacing={3}>
+            {filteredItems.map((project, index) =>
+              <Project
+                name={project.name}
+                tools={project.tools}
+                desc={project.description}
+                image={project.image}
+                link={project.link}
+                source={project.source}
+                key={index}
+              />
+            )}
+          </Grid>
+        </Container>
       </main>
     )
   }

@@ -33,6 +33,11 @@ const useStyles = makeStyles({
     flexGrow: 1,
     // borderTop: '1px solid black'
   },
+  projectButtons: {
+    fontFamily: "'Nunito', sans-serif",
+    color: 'inherit',
+    fontSize: '14px'
+  }
 });
 
 const Project = (props) => {
@@ -49,19 +54,20 @@ const Project = (props) => {
         </CardActionArea>
         <Divider/>
         <CardContent className={classes.cardContent}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            {props.name}
+          <Typography variant="h5" component="h3">
+            <b>{props.name}</b>
+          </Typography>
+          <Typography color="textSecondary" style={{ fontSize: '16px'}} gutterBottom>
+            <em>{props.tools}</em>
           </Typography>
           <Typography>
-            <b>Tools:</b> {props.tools}
-          </Typography>
-          <Typography>
-            <b>About:</b> {props.desc}
+            {props.desc}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
-            <Link 
+          <Button size="small">
+            <Link
+              className={classes.projectButtons}
               rel="noopener noreferrer"
               target="_blank"
               href={props.link}
@@ -70,8 +76,9 @@ const Project = (props) => {
             </Link>
           </Button>
           {props.source !== '' &&
-            <Button size="small" color="primary">
-              <Link 
+            <Button size="small">
+              <Link
+                className={classes.projectButtons}
               rel="noopener noreferrer"
               target="_blank"
               href={props.source}>
