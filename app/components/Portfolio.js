@@ -3,6 +3,8 @@ import Project from "./Project";
 import projectData from "../../lib/projectData";
 import Filter from "./Filter";
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -16,9 +18,17 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 
 const styles = {
-  root: {
-    // flexGrow: 1,
-    // color: '#f3f3f3'
+  blue: {
+    marginBottom: '32px',
+    backgroundColor: '#F7FAFB',
+    height: '256px',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  intro: {
+    '@media (max-width: 599px)': {
+      fontSize: '1.25rem'
+    }
   },
   card: {
     height: '100%',
@@ -126,53 +136,65 @@ class Portfolio extends React.Component {
     // console.log(this.state)
     const { tags, filteredItems } = this.state;
     return (
-      <div className={classes.root}>
-        <Filter
-          filterField={this.state.filteringText}
-          handleTextFilter={this.handleTextFilter}
-          clearFilter={this.clearFilters}
-        />
-        <List disablePadding className={classes.list}>
-          <FormControl component="fieldset">
-            <RadioGroup
-              aria-label="Gender"
-              name="gender1"
-              value={this.state.radioOption || ''}
-              onChange={this.handleRadioButtons}
-            >
-              <ListItem button onClick={this.handleListToggle}>
-                <ListItemText primary="Show all filters" />
-                {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
-                {tags.map((tag) => 
-                  <ListItem key={tag} dense className={classes.radioList}>
-                    <FormControlLabel
-                      value={tag}
-                      control={<Radio />}
-                      label={tag}
-                      labelPlacement="end"
-                    />
-                  </ListItem>
-                )}
-              </Collapse>
-            </RadioGroup>
-          </FormControl>
-        </List>
-        <Grid container spacing={3}>
-          {filteredItems.map((project, index) =>
-            <Project
-              name={project.name}
-              tools={project.tools}
-              desc={project.description}
-              image={project.image}
-              link={project.link}
-              source={project.source}
-              key={index}
-            />
-          )}
-        </Grid>
-      </div>
+      <main>
+        <Container maxWidth="xl" className={classes.blue}>
+          <Container maxWidth="sm" className={classes.hero}>
+            <Typography component="h2" variant="h3" className={classes.header}>
+              Portfolio
+            </Typography>
+            <Typography variant="h5" className={classes.intro}>
+              A catalog of my past work. Use the filters to see what tools I've been using.
+            </Typography>
+          </Container>
+        </Container>
+        <Container>
+          <Filter
+            filterField={this.state.filteringText}
+            handleTextFilter={this.handleTextFilter}
+            clearFilter={this.clearFilters}
+          />
+          <List disablePadding className={classes.list}>
+            <FormControl component="fieldset">
+              <RadioGroup
+                aria-label="Gender"
+                name="gender1"
+                value={this.state.radioOption || ''}
+                onChange={this.handleRadioButtons}
+              >
+                <ListItem button onClick={this.handleListToggle}>
+                  <ListItemText primary="Show all filters" />
+                  {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
+                  {tags.map((tag) => 
+                    <ListItem key={tag} dense className={classes.radioList}>
+                      <FormControlLabel
+                        value={tag}
+                        control={<Radio />}
+                        label={tag}
+                        labelPlacement="end"
+                      />
+                    </ListItem>
+                  )}
+                </Collapse>
+              </RadioGroup>
+            </FormControl>
+          </List>
+          <Grid container spacing={3}>
+            {filteredItems.map((project, index) =>
+              <Project
+                name={project.name}
+                tools={project.tools}
+                desc={project.description}
+                image={project.image}
+                link={project.link}
+                source={project.source}
+                key={index}
+              />
+            )}
+          </Grid>
+        </Container>
+      </main>
     )
   }
 }

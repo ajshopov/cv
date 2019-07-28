@@ -11,7 +11,8 @@ const styles = {
   },
   button: {
     margin: "4px 8px",
-    verticalAlign: "bottom"
+    verticalAlign: "bottom",
+    fontFamily: "'Nunito', sans-serif"
   }
 }
 
