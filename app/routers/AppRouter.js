@@ -23,6 +23,9 @@ const outerTheme = createMuiTheme({
   palette: {
     background: {
       default: '#FFF'
+    },
+    text: {
+      primary: '#333'
     }
   }
 });

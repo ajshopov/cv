@@ -22,6 +22,21 @@ const useStyles = makeStyles({
     '@media (max-width: 599px)': {
       fontSize: '1.25rem'
     }
+  },
+  numbers: {
+    fontFamily: "'Playfair Display', serif",
+    fontSize: '2rem',
+    color: '#53717A'
+  },
+  resources: {
+    '@media (max-width: 599px)': {
+      padding: '0',
+    }
+  },
+  itemText: {
+    '@media (max-width: 599px)': {
+      fontSize: '1rem'
+    }
   }
 })
 
@@ -45,10 +60,19 @@ const Resources = () => {
             return(
               <ListItem key={index}>
                 <ListItemIcon>
-                  <Label />
+                  <Typography className={classes.numbers}>
+                    {('00' + (index + 1)).slice(-2)}
+                  </Typography>
                 </ListItemIcon>
                 <ListItemText
-                  primary={<Link href={listing.linkUrl} rel="noopener noreferrer" target="_blank">
+                primary={
+                  <Link 
+                    className={classes.itemText}
+                    color="inherit"
+                    href={listing.linkUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     {listing.title}
                   </Link>}
                 />

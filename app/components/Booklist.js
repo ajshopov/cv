@@ -7,7 +7,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import ListItemText from '@material-ui/core/ListItemText';
-import Label from '@material-ui/icons/LabelImportant';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
@@ -38,6 +37,11 @@ const useStyles = makeStyles({
   '@media (min-width: 600px)': {
       fontSize: '1rem'
     }
+  },
+  numbers: {
+    fontFamily: "'Playfair Display', serif",
+    fontSize: '2rem',
+    color: '#53717A'
   }
 })
 
@@ -61,7 +65,9 @@ const Booklist = () => {
             return (
               <ListItem key={index}>
                 <ListItemIcon>
-                  <Label />
+                  <Typography className={classes.numbers}>
+                  {('00'+(index+1)).slice(-2)}
+                  </Typography>
                 </ListItemIcon>
                 <ListItemText
                   classes={{
@@ -70,7 +76,7 @@ const Booklist = () => {
                   }}
                   primary={
                     <Link 
-
+                      color="inherit"
                       href={book.url} 
                       rel="noopener noreferrer" 
                       target="_blank"
