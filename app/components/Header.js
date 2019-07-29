@@ -104,6 +104,7 @@ const Header = () => {
             rel="noopener noreferrer"
             target="_blank"
             color="inherit"
+            title="LinkedIn Profile"
           >
             <span style={{ fontSize: '1.5em' }}>
               <FontAwesomeIcon icon={faLinkedin} />
@@ -114,6 +115,7 @@ const Header = () => {
             rel="noopener noreferrer"
             target="_blank"
             color="inherit"
+            title="Github Profile"
           >
             <span style={{ fontSize: '1.5em', marginLeft: '1em'}}>
               <FontAwesomeIcon icon={faGithub} />

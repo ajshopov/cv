@@ -55,7 +55,7 @@ const Booklist = () => {
             Books
           </Typography>
           <Typography variant="h5" className={classes.intro}>
-          A selection of tech, business and self-imporvement books that have shaped my thinking.
+          A selection of tech, business and self-improvement books that have shaped my thinking.
           </Typography>
         </Container>
       </Container>
