@@ -111,13 +111,14 @@ const Header = () => {
             </span>
           </Link>
           <Link
+            style={{ marginLeft: '1.5em' }}
             href="https://github.com/ajshopov"
             rel="noopener noreferrer"
             target="_blank"
             color="inherit"
             title="Github Profile"
           >
-            <span style={{ fontSize: '1.5em', marginLeft: '1em'}}>
+            <span style={{ fontSize: '1.5em' }}>
               <FontAwesomeIcon icon={faGithub} />
             </span>
           </Link>

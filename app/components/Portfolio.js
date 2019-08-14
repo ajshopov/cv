@@ -82,7 +82,7 @@ class Portfolio extends React.Component {
   }
 
   handleRadioButtons = (event) => {
-    console.log("value", event.target.value)
+    // console.log("value", event.target.value)
     event.persist();
     this.setState(() => (
       {filteringText: event.target.value, radioOption: event.target.value }
@@ -98,14 +98,12 @@ class Portfolio extends React.Component {
   clearFilters = () => {
     this.setState(() => ({ filteringText: '', radioOption: null }))
     this.updateResults('')
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   updateResults = (text) => {
     
     let results = this.state.projects.filter(project => {
-      // console.log("search text", text)
-      // console.log("proj", project.name.toLowerCase())
       // let numberOfWordsInSearch = text.trim().split(' ').length;
       // console.log('numberOfWordsInSearch', numberOfWordsInSearch)
       // let regex = new RegExp(`${text.toLowerCase().trim().split(' ').join('|')}`);
@@ -114,26 +112,20 @@ class Portfolio extends React.Component {
       // console.log(Object.values(project).slice(0,4))
       const allTextContent = Object.values(project).slice(0,4).map((p) => p.toLowerCase()).join(' ')
       // return allTextContent.includes(text.toLowerCase()); // old method
-      // console.log("nuregex", regexA.test(allTextContent))
-      // console.log("test", regex.test(allTextContent))
-      // console.log("original", allTextContent.includes(text.toLowerCase()))
 
       return regexA.test(allTextContent);
     })
-    console.log('results', results)
+    // console.log('results', results)
     this.setState(() => ({ filteredItems: results }))
   }
 
   handleListToggle = () => {
     this.setState(() => ({ listOpen: !this.state.listOpen }));
-    console.log(this.state.listOpen)
+    // console.log(this.state.listOpen)
   }
   
   render(){
     const { classes } = this.props
-    // console.log(this.props)
-    // console.log(this.state.projects)
-    // console.log(this.state)
     const { tags, filteredItems } = this.state;
     return (
       <main>
@@ -162,7 +154,7 @@ class Portfolio extends React.Component {
                 onChange={this.handleRadioButtons}
               >
                 <ListItem button onClick={this.handleListToggle}>
-                  <ListItemText primary="Show all filters" />
+                  <ListItemText primary={this.state.listOpen ? 'Hide filters' : 'Show all filters' } />
                   {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>

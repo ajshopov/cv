@@ -49,7 +49,7 @@ const Home = () => {
     <main className={classes.home}>
       <Container maxWidth="xl" className={classes.blue}>
         <Container maxWidth="sm" className={classes.hero}>
-          <Avatar alt="me" src={require('../images/alexander-bw.jpg')} className={classes.avatar} />
+          <Avatar alt="me" src={require('../images/alexander-bw-small.jpg')} className={classes.avatar} />
           <Typography variant="h5" className={classes.intro}>
             <span style={{ fontWeight: 'bold' }}>Hi, I'm Alex, a front-end web developer.</span>
             <br />

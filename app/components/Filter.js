@@ -31,7 +31,7 @@ class Filter extends React.Component {
           className=""
           value={this.props.filterField}
           onChange={(e) => {
-            console.log(e.target.value)
+            // console.log(e.target.value)
             this.handleChange(e.target.value);
           }}
           margin="dense"
