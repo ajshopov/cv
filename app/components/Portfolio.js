@@ -63,6 +63,7 @@ const tags = [
   'Rails',
   'RSpec',
   'Adelphi Digital',
+  'Squiz',
   'General Assembly',
   'API',
   'OAuth',
