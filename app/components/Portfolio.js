@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 import Project from "./Project";
 import projectData from "../../lib/projectData";
 import Filter from "./Filter";
@@ -130,6 +131,7 @@ class Portfolio extends React.Component {
     const { tags, filteredItems } = this.state;
     return (
       <main>
+        <Header />
         <Container maxWidth="xl" className={classes.blue}>
           <Container maxWidth="sm" className={classes.hero}>
             <Typography component="h2" variant="h3" className={classes.header}>

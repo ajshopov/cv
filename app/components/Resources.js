@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 import urls from "../../lib/Resources";
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
@@ -44,6 +45,7 @@ const Resources = () => {
   const classes = useStyles();
   return (
     <main>
+      <Header />
       <Container maxWidth="xl" className={classes.blue}>
         <Container maxWidth="sm" className={classes.hero}>
           <Typography component="h2" variant="h3" className={classes.header}>

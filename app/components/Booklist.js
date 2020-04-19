@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 import books from "../../lib/Booklist";
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
@@ -49,6 +50,7 @@ const Booklist = () => {
   const classes = useStyles();
   return(
     <main>
+      <Header />
       <Container maxWidth="xl" className={classes.blue}>
         <Container maxWidth="sm" className={classes.hero}>
           <Typography component="h2" variant="h3" className={classes.header}>

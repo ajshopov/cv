@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 import { NavLink } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -47,6 +48,7 @@ const Home = () => {
   const classes = useStyles();
   return(
     <main className={classes.home}>
+      <Header />
       <Container maxWidth="xl" className={classes.blue}>
         <Container maxWidth="sm" className={classes.hero}>
           <Avatar alt="me" src={require('../images/alexander-bw-small.jpg')} className={classes.avatar} />
