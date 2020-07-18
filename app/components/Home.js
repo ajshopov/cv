@@ -71,13 +71,6 @@ const Home = () => {
           </Typography>
         </Container>
       </Container>
-      {
-        // <Container maxWidth="lg">
-        //   <Typography>
-        //   Originally working as an engineer in the mining industry, I’ve transitioned into web development through a mix of self-directed learning, a General Assembly bootcamp, and as a front-end developer at Adelphi Digital. My personal goal as a web developer is to combine my interests in productivity, data, and continuous learning to improve the delivery of information through great web interfaces.
-        // </Typography>
-        // </Container>
-      }
     </main>
   )
 }
