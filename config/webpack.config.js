@@ -62,7 +62,7 @@ module.exports = (env = {}) => {
   const dev = {
     devtool: 'cheap-module-source-map',
     devServer: {
-      host: '0.0.0.0',
+      host: 'localhost',
       port: 8080,
       stats: 'errors-only',
       historyApiFallback: true
