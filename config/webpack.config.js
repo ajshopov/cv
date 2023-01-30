@@ -65,7 +65,8 @@ module.exports = (env = {}) => {
       host: 'localhost',
       port: 8080,
       stats: 'errors-only',
-      historyApiFallback: true
+      historyApiFallback: true,
+      open: true
     }
   }
 
