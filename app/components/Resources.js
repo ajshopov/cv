@@ -1,14 +1,14 @@
 import React from "react";
 import urls from "../../lib/Resources";
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Typography from '@material-ui/core/Typography';
-import ListItemText from '@material-ui/core/ListItemText';
-import Label from '@material-ui/icons/LabelImportant';
-import { makeStyles } from '@material-ui/styles';
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Typography from '@mui/material/Typography';
+import ListItemText from '@mui/material/ListItemText';
+import Label from '@mui/icons-material/LabelImportant';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   blue: {
@@ -69,6 +69,7 @@ const Resources = () => {
                   <Link 
                     className={classes.itemText}
                     color="inherit"
+                    underline="hover"
                     href={listing.linkUrl}
                     rel="noopener noreferrer"
                     target="_blank"

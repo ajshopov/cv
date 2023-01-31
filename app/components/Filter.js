@@ -1,9 +1,9 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Search from '@material-ui/icons/Search';
-import { withStyles } from '@material-ui/core/styles';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import Search from '@mui/icons-material/Search';
+import withStyles from '@mui/styles/withStyles';
 
 const styles = {
   root: {

@@ -6,11 +6,11 @@ import Portfolio from "../components/Portfolio";
 import Booklist from "../components/Booklist";
 import NotFoundPage from "../components/NotFoundPage";
 import Resources from "../components/Resources";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 
-const outerTheme = createMuiTheme({
+const outerTheme = createTheme(adaptV4Theme({
   typography: {
     fontFamily: "'Crimson Text', serif",
     body1: {
@@ -28,21 +28,23 @@ const outerTheme = createMuiTheme({
       primary: '#333'
     }
   }
-});
+}));
 
 const AppRouter = () => (
   <HashRouter>
-    <ThemeProvider theme={outerTheme}>
-      <CssBaseline />
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/resources" component={Resources} />
-          <Route path="/booklist" component={Booklist} />
-          <Route component={NotFoundPage} />
-        </Switch>
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={outerTheme}>
+        <CssBaseline />
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/resources" component={Resources} />
+            <Route path="/booklist" component={Booklist} />
+            <Route component={NotFoundPage} />
+          </Switch>
+      </ThemeProvider>
+    </StyledEngineProvider>
   </HashRouter>
 );
 
