@@ -1,17 +1,20 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Search from '@material-ui/icons/Search';
-import { withStyles } from '@material-ui/core/styles';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import Search from '@mui/icons-material/Search';
+import withStyles from '@mui/styles/withStyles';
 
 const styles = {
   root: {
-    padding: '0 16px'
+    display: 'flex',
+    padding: '0'
+
+  },
+  search: {
+    margin: '0 8px 0 0'
   },
   button: {
-    margin: "4px 8px",
-    verticalAlign: "bottom",
     fontFamily: "'Nunito', sans-serif"
   }
 }
@@ -28,7 +31,7 @@ class Filter extends React.Component {
         <TextField
           id="standard-name"
           label="Search"
-          className=""
+          className={classes.search}
           value={this.props.filterField}
           onChange={(e) => {
             // console.log(e.target.value)

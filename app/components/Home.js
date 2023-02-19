@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
-import { makeStyles } from '@material-ui/styles';
-import Box from "@material-ui/core/Box";
-import Link from '@material-ui/core/Link';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import { makeStyles } from '@mui/styles';
+import Box from "@mui/material/Box";
+import Link from '@mui/material/Link';
 
 const useStyles = makeStyles({
   blue: { 
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 })
 
 const RouteLink = React.forwardRef((props, ref) => (
-  <NavLink innerRef={ref} {...props} />
+  <NavLink ref={ref} {...props} />
 ));
 
 const Home = () => {

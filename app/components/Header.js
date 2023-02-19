@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { makeStyles } from '@material-ui/styles';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { makeStyles } from '@mui/styles';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -72,11 +72,16 @@ const useStyles = makeStyles({
     '@media (max-width: 799px)': {
       display: "none"
     }
+  },
+  menu: {
+    fontSize: '0.875rem',
+    color: "inherit",
+    textDecoration: "none",
   }
 })
 
 const RouteLink = React.forwardRef((props, ref) => (
-  <NavLink innerRef={ref} {...props} />
+  <NavLink ref={ref} {...props} />
 ));
 
 
@@ -92,10 +97,10 @@ const Header = () => {
         </Typography>
         <Container maxWidth="xs">
           <Toolbar component="nav" className={classes.toolbar}>
-            <Link component={RouteLink} color="inherit" className={classes.home} activeClassName={classes.active} exact to="/">Home</Link>
-            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/portfolio">Portfolio</Link>
-            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/resources">Resources</Link>
-            <Link component={RouteLink} color="inherit" activeClassName={classes.active} to="/booklist">Booklist</Link>
+            <Link component={RouteLink} className={`${classes.home} ${classes.menu}`} activeClassName={classes.active} exact to="/">Home</Link>
+            <Link component={RouteLink} className={classes.menu} activeClassName={classes.active} to="/portfolio">Portfolio</Link>
+            <Link component={RouteLink} className={classes.menu} activeClassName={classes.active} to="/resources">Resources</Link>
+            <Link component={RouteLink} className={classes.menu} activeClassName={classes.active} to="/booklist">Booklist</Link>
           </Toolbar>
         </Container>
         <Box className={classes.icons}>
@@ -106,7 +111,7 @@ const Header = () => {
             color="inherit"
             title="LinkedIn Profile"
           >
-            <span style={{ fontSize: '1.5em' }}>
+            <span>
               <FontAwesomeIcon icon={faLinkedin} />
             </span>
           </Link>
@@ -118,7 +123,7 @@ const Header = () => {
             color="inherit"
             title="Github Profile"
           >
-            <span style={{ fontSize: '1.5em' }}>
+            <span>
               <FontAwesomeIcon icon={faGithub} />
             </span>
           </Link>
