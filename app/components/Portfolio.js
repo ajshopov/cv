@@ -41,8 +41,12 @@ const styles = {
   cardContent: {
     flexGrow: 1,
   },
+  filterToggle: {
+    paddingLeft: '0',
+    paddingRight: '0'
+  },
   radioList: {
-    display: 'inline'
+    padding: '0'
   },
   list: {
     marginBottom: '32px'
@@ -52,6 +56,7 @@ const styles = {
 const tags = [
   'SCSS',
   'MaterializeCSS',
+  'Matrix CMS',
   'Jade',
   'Slim',
   'Javascript',
@@ -67,7 +72,6 @@ const tags = [
   'General Assembly',
   'API',
   'OAuth',
-  'Game',
   'PostgreSQL'
 ];
 
@@ -154,21 +158,26 @@ class Portfolio extends React.Component {
                 value={this.state.radioOption || ''}
                 onChange={this.handleRadioButtons}
               >
-                <ListItem button onClick={this.handleListToggle}>
+                <ListItem button onClick={this.handleListToggle} className={classes.filterToggle}>
                   <ListItemText primary={this.state.listOpen ? 'Hide filters' : 'Show all filters' } />
                   {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
-                  {tags.map((tag) => 
-                    <ListItem key={tag} dense className={classes.radioList}>
-                      <FormControlLabel
-                        value={tag}
-                        control={<Radio />}
-                        label={tag}
-                        labelPlacement="end"
-                      />
-                    </ListItem>
-                  )}
+                  <Grid container>
+                    {tags.map((tag) => 
+                      <Grid item xs={6} sm={4} md={3} lg={2}>
+                        <ListItem key={tag} className={classes.radioList}>
+                          <FormControlLabel
+                            value={tag}
+                            control={<Radio />}
+                            label={tag}
+                            labelPlacement="end"
+                          />
+                        </ListItem>
+                      </Grid>
+                    )}
+                  </Grid>
+
                 </Collapse>
               </RadioGroup>
             </FormControl>

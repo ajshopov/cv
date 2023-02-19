@@ -7,11 +7,14 @@ import withStyles from '@mui/styles/withStyles';
 
 const styles = {
   root: {
-    padding: '0 16px'
+    display: 'flex',
+    padding: '0'
+
+  },
+  search: {
+    margin: '0 8px 0 0'
   },
   button: {
-    margin: "4px 8px",
-    verticalAlign: "bottom",
     fontFamily: "'Nunito', sans-serif"
   }
 }
@@ -28,7 +31,7 @@ class Filter extends React.Component {
         <TextField
           id="standard-name"
           label="Search"
-          className=""
+          className={classes.search}
           value={this.props.filterField}
           onChange={(e) => {
             // console.log(e.target.value)
