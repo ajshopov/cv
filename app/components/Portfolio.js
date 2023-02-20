@@ -165,7 +165,7 @@ class Portfolio extends React.Component {
                 <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
                   <Grid container>
                     {tags.map((tag) => 
-                      <Grid item xs={6} sm={4} md={3} lg={2}>
+                      <Grid key={tag} item xs={6} sm={4} md={3} lg={2}>
                         <ListItem key={tag} className={classes.radioList}>
                           <FormControlLabel
                             value={tag}
