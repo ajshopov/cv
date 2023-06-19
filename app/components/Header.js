@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faCodepen } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const useStyles = makeStyles({
   toolbar: {
@@ -125,6 +126,18 @@ const Header = () => {
           >
             <span>
               <FontAwesomeIcon icon={faGithub} />
+            </span>
+          </Link>
+          <Link
+            style={{ marginLeft: '1.5em' }}
+            href="https://codepen.io/Hawka"
+            rel="noopener noreferrer"
+            target="_blank"
+            color="inherit"
+            title="Codepen Profile"
+          >
+            <span>
+              <FontAwesomeIcon icon={faCodepen} />
             </span>
           </Link>
         </Box>
