@@ -1,6 +1,9 @@
 import React from "react";
 import GridLayout from "react-grid-layout";
 import withStyles from '@mui/styles/withStyles';
+import "../../node_modules/react-grid-layout/css/styles.css";
+import "../../node_modules/react-resizable/css/styles.css";
+
 
 const styles = {
     gridImage: {
