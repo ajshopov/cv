@@ -16,6 +16,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
+import { Link } from "@mui/material";
 
 const styles = {
   blue: {
@@ -140,7 +141,19 @@ class Portfolio extends React.Component {
               Portfolio
             </Typography>
             <Typography variant="h5" className={classes.intro}>
-              A catalog of my past work. Use the filters to see what tools I've been using.
+              A catalog of my past projects. Search key words and use the filters to see what tools I've been using. My latest work has been with the Squiz <Link
+                rel="noopener noreferrer"
+                color="inherit"
+                target="_blank"
+                href="https://www.squiz.net/">
+                Matrix CMS
+              </Link> and <Link
+                rel="noopener noreferrer"
+                color="inherit"
+                target="_blank"
+                href="https://www.squiz.net/search">
+                Funnelback Search
+              </Link>.
             </Typography>
           </Container>
         </Container>
@@ -182,7 +195,7 @@ class Portfolio extends React.Component {
               </RadioGroup>
             </FormControl>
           </List>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} paddingBottom={3}>
             {filteredItems.map((project, index) =>
               <Project
                 name={project.name}

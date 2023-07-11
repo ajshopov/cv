@@ -65,24 +65,25 @@ const Project = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
+          {props.link !== '' &&
           <Button size="small">
             <Link
               className={classes.projectButtons}
               rel="noopener noreferrer"
               target="_blank"
-              href={props.link}
-            >
-              Link
+              href={props.link}>
+                Link
             </Link>
           </Button>
+          }
           {props.source !== '' &&
             <Button size="small">
               <Link
                 className={classes.projectButtons}
-              rel="noopener noreferrer"
-              target="_blank"
-              href={props.source}>
-                Source Code
+                rel="noopener noreferrer"
+                target="_blank"
+                href={props.source}>
+                  Repo
               </Link>
             </Button>
           }
