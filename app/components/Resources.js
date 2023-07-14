@@ -1,5 +1,6 @@
 import React from "react";
 import urls from "../../lib/Resources";
+import categories from "../../lib/ResourceCategories";
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
@@ -23,6 +24,11 @@ const useStyles = makeStyles({
       fontSize: '1.25rem'
     }
   },
+  resourceList: {
+    '@media (max-width: 599px)': {
+      padding: '0'
+    }
+  },
   numbers: {
     fontFamily: "'Playfair Display', serif",
     fontSize: '2rem',
@@ -42,6 +48,7 @@ const useStyles = makeStyles({
 
 const Resources = () => {
   const classes = useStyles();
+  let counter = 0;
   return (
     <main>
       <Container maxWidth="xl" className={classes.blue}>
@@ -54,33 +61,44 @@ const Resources = () => {
           </Typography>
         </Container>
       </Container>
-      <Container maxWidth="md" className={classes.resources}>
-        <List>
-          {urls.map((listing, index) => {
-            return(
-              <ListItem key={index}>
-                <ListItemIcon>
-                  <Typography className={classes.numbers}>
-                    {('00' + (index + 1)).slice(-2)}
-                  </Typography>
-                </ListItemIcon>
-                <ListItemText
-                primary={
-                  <Link 
-                    className={classes.itemText}
-                    color="inherit"
-                    underline="hover"
-                    href={listing.linkUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {listing.title}
-                  </Link>}
-                />
-              </ListItem>
+      <Container maxWidth="md" className={classes.resourceList}>
+        <Container>
+          {categories.map((category, index) => {
+            return (
+              <div>
+                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{category}</Typography>
+                <List sx={{ pb: 4, pt : 0 }}>
+                  {urls[index].map((listing, index) => {
+                    {counter++;}
+                    return (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <Typography className={classes.numbers}>
+                            {("00" + counter).slice(-2)}
+                          </Typography>
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={
+                            <Link
+                              className={classes.itemText}
+                              color="inherit"
+                              underline="hover"
+                              href={listing.linkUrl}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              {listing.title}
+                            </Link>
+                          }
+                        />
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </div>
             );
           })}
-        </List>
+          </Container>
       </Container>
     </main>
   );
