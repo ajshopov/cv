@@ -55,25 +55,27 @@ const styles = {
 };
 
 const tags = [
-  'SCSS',
-  'MaterializeCSS',
   'Matrix CMS',
-  'Jade',
-  'Slim',
+  'Funnelback',
   'Javascript',
   'jQuery',
   'Webpack',
   'React',
   'Redux',
+  'SCSS',
+  'Bootstrap',
+  'MaterializeCSS',
+  'Jade',
+  'Slim',
   'Ruby',
   'Rails',
   'RSpec',
-  'Adelphi Digital',
-  'Squiz',
-  'General Assembly',
+  'PostgreSQL',
   'API',
   'OAuth',
-  'PostgreSQL'
+  'Adelphi Digital',
+  'Squiz',
+  'General Assembly'
 ];
 
 
@@ -141,13 +143,16 @@ class Portfolio extends React.Component {
               Portfolio
             </Typography>
             <Typography variant="h5" className={classes.intro}>
-              A catalog of my past projects. Search key words and use the filters to see what tools I've been using. My latest work has been with the Squiz <Link
+              A catalog of my past projects. Search tags or use the filters to see what tools I've been using. My latest work has been with the Squiz&nbsp;
+              <Link
                 rel="noopener noreferrer"
                 color="inherit"
                 target="_blank"
                 href="https://www.squiz.net/">
                 Matrix CMS
-              </Link> and <Link
+              </Link>
+              &nbsp;and&nbsp;
+              <Link
                 rel="noopener noreferrer"
                 color="inherit"
                 target="_blank"
