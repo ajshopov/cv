@@ -16,6 +16,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
+import { Link } from "@mui/material";
 
 const styles = {
   blue: {
@@ -54,25 +55,27 @@ const styles = {
 };
 
 const tags = [
-  'SCSS',
-  'MaterializeCSS',
   'Matrix CMS',
-  'Jade',
-  'Slim',
+  'Funnelback',
   'Javascript',
   'jQuery',
   'Webpack',
   'React',
   'Redux',
+  'SCSS',
+  'Bootstrap',
+  'MaterializeCSS',
+  'Jade',
+  'Slim',
   'Ruby',
   'Rails',
   'RSpec',
-  'Adelphi Digital',
-  'Squiz',
-  'General Assembly',
+  'PostgreSQL',
   'API',
   'OAuth',
-  'PostgreSQL'
+  'Adelphi Digital',
+  'Squiz',
+  'General Assembly'
 ];
 
 
@@ -140,7 +143,22 @@ class Portfolio extends React.Component {
               Portfolio
             </Typography>
             <Typography variant="h5" className={classes.intro}>
-              A catalog of my past work. Use the filters to see what tools I've been using.
+              A catalog of my past projects. Search tags or use the filters to see what tools I've been using. My latest work has been with the Squiz&nbsp;
+              <Link
+                rel="noopener noreferrer"
+                color="inherit"
+                target="_blank"
+                href="https://www.squiz.net/">
+                Matrix CMS
+              </Link>
+              &nbsp;and&nbsp;
+              <Link
+                rel="noopener noreferrer"
+                color="inherit"
+                target="_blank"
+                href="https://www.squiz.net/search">
+                Funnelback Search
+              </Link>.
             </Typography>
           </Container>
         </Container>
@@ -182,7 +200,7 @@ class Portfolio extends React.Component {
               </RadioGroup>
             </FormControl>
           </List>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} paddingBottom={3}>
             {filteredItems.map((project, index) =>
               <Project
                 name={project.name}

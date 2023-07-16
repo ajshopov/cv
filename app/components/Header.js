@@ -130,7 +130,7 @@ const Header = () => {
           </Link>
           <Link
             style={{ marginLeft: '1.5em' }}
-            href="https://codepen.io/Hawka"
+            href="https://codepen.io/ajshopov"
             rel="noopener noreferrer"
             target="_blank"
             color="inherit"
