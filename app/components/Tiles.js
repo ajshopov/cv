@@ -1,5 +1,6 @@
 import React from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
+import Container from '@mui/material/Container';
 import withStyles from '@mui/styles/withStyles';
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
@@ -50,12 +51,13 @@ class MyFirstGrid extends React.Component {
     const { classes } = this.props
     const { error, isLoaded, books } = this.state;
     const layoutLG = [
-      { i: "0", x: 3, y: 2, w: 3, h: 5},
-      { i: "1", x: 0, y: 0, w: 3, h: 5}
+      { i: "0", x: 0, y: 0, w: 2, h: 5},
+      { i: "1", x: 2, y: 0, w: 2, h: 5},
+      { i: "2", x: 4, y: 0, w: 2, h: 5}
     ];
-    const layoutMD = [
-        { i: "0", x: 4, y: 0, w: 2, h: 5},
-        { i: "1", x: 1, y: 4, w: 1, h: 1}
+    const layoutXXS = [
+        { i: "0", x: 0, y: 0, w: 1, h: 4},
+        { i: "1", x: 1, y: 0, w: 1, h: 4}
       ];
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -63,31 +65,22 @@ class MyFirstGrid extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div style={{maxWidth: "12000px"}}>
-          {/* <div>
-            {books.map((entry, index) => (
-              <div key={index}>
-                <h2>{entry.work.title}</h2>
-                <p>Author: {entry.work.author_names.join(', ')}</p>
-                <img src={`https://covers.openlibrary.org/b/id/${entry.work.cover_id}-L.jpg`}/>
-              </div>
-            ))}
-          </div> */}
+        <Container maxWidth="xl" disableGutters>
           <ResponsiveGridLayout
-            layouts={{ lg: layoutLG, md: layoutMD }}
             rowHeight={60}
-            width={1200}
+            width={1536}
+            // isResizable={false}
             verticalCompact={false}
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
             cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
           >
             {books.map((entry, index) => (
-              <div key={index}>
+              <div key={index} data-grid={{ x: index, y: 0, w: 1, h: 3 }}>
                 <img className={classes.gridImage} src={`https://covers.openlibrary.org/b/id/${entry.work.cover_id}-L.jpg`}/>
               </div>
             ))}
           </ResponsiveGridLayout>
-        </div>
+        </Container>
       );
     }
   }
