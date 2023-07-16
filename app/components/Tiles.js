@@ -7,8 +7,9 @@ import "../../node_modules/react-resizable/css/styles.css";
 
 const styles = {
     gridImage: {
-      maxWidth: '100%',
-      maxHeight: '100%'
+      objectFit: 'cover',
+      width: '100%',
+      height: '100%'
     }
   }
 
@@ -19,7 +20,7 @@ class MyFirstGrid extends React.Component {
     // layout is an array of objects, see the demo for more complete usage
     const layout = [
       { i: "a", x: 0, y: 0, w: 1, h: 2},
-      { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
+      { i: "b", x: 1, y: 0, w: 3, h: 2, maxH: 6, maxW: 3 },
       { i: "c", x: 4, y: 0, w: 1, h: 2 },
       { i: "d", x: 4, y: 0, w: 1, h: 2 },
       { i: "e", x: 4, y: 0, w: 1, h: 2 },
