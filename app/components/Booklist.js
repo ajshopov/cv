@@ -1,6 +1,6 @@
 import React from "react";
 import books from "../../lib/Booklist";
-import MyFirstGrid from "./Tiles";
+import BookGrid from "./Tiles";
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -60,8 +60,8 @@ const Booklist = () => {
           </Typography>
         </Container>
       </Container>
-      <MyFirstGrid />
-      <Container maxWidth="md" className={classes.booklist}>
+      <BookGrid />
+      {/* <Container maxWidth="md" className={classes.booklist}>
         <List>
           {books.map((book, index) => {
             return (
@@ -93,8 +93,7 @@ const Booklist = () => {
             );
           })}
         </List>
-      </Container>
-
+      </Container> */}
     </main>
   );
 }

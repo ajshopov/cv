@@ -2,8 +2,10 @@ import React from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import Container from '@mui/material/Container';
 import withStyles from '@mui/styles/withStyles';
+import { Button } from "@mui/material";
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
+import startingTemplate from "../../lib/gridInitialLayout";
 
 
 const styles = {
@@ -13,7 +15,9 @@ const styles = {
       height: '100%'
     }
   }
-  const ResponsiveGridLayout = WidthProvider(Responsive);
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
+const initialLayouts = getFromLS("layouts") || startingTemplate;
 
 class MyFirstGrid extends React.Component {
   constructor(props) {
@@ -21,7 +25,8 @@ class MyFirstGrid extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      books: []
+      books: [],
+      layouts: initialLayouts
     };
   }
 
@@ -46,19 +51,19 @@ class MyFirstGrid extends React.Component {
         }
       )
   }
+
+  resetLayout() {
+    this.setState({ layouts: startingTemplate });
+  }
+
+  onLayoutChange(layout, layouts) {
+    saveToLS("layouts", layouts);
+    this.setState({ layouts });
+  }
   
   render() {
     const { classes } = this.props
     const { error, isLoaded, books } = this.state;
-    const layoutLG = [
-      { i: "0", x: 0, y: 0, w: 2, h: 5},
-      { i: "1", x: 2, y: 0, w: 2, h: 5},
-      { i: "2", x: 4, y: 0, w: 2, h: 5}
-    ];
-    const layoutXXS = [
-        { i: "0", x: 0, y: 0, w: 1, h: 4},
-        { i: "1", x: 1, y: 0, w: 1, h: 4}
-      ];
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -66,13 +71,20 @@ class MyFirstGrid extends React.Component {
     } else {
       return (
         <Container maxWidth="xl" disableGutters>
+          <Button 
+            variant="outlined"
+            style={{fontFamily: "'Nunito', sans-serif"}}
+            onClick={() => this.resetLayout()}>Reset Layout</Button>
           <ResponsiveGridLayout
+            layouts={this.state.layouts}
+            onLayoutChange={(layout, layouts) =>
+              this.onLayoutChange(layout, layouts)
+            }
             rowHeight={60}
             width={1536}
-            // isResizable={false}
-            verticalCompact={false}
+            compactType={null}
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-            cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+            cols={{ lg: 10, md: 8, sm: 6, xs: 4, xxs: 2 }}
           >
             {books.map((entry, index) => (
               <div key={index} data-grid={{ x: index, y: 0, w: 1, h: 3 }}>
@@ -86,4 +98,28 @@ class MyFirstGrid extends React.Component {
   }
 }
 
+function getFromLS(key) {
+  let ls = {};
+  if (global.localStorage) {
+    try {
+      ls = JSON.parse(global.localStorage.getItem("rgl-8")) || {};
+    } catch (e) {
+      /*Ignore*/
+    }
+  }
+  return ls[key];
+}
+
+function saveToLS(key, value) {
+  if (global.localStorage) {
+    global.localStorage.setItem(
+      "rgl-8",
+      JSON.stringify({
+        [key]: value
+      })
+    );
+  }
+}
+
 export default withStyles(styles)(MyFirstGrid);
+
