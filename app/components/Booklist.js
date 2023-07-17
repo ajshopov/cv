@@ -1,6 +1,6 @@
 import React from "react";
 import books from "../../lib/Booklist";
-import BookGrid from "./Tiles";
+import BookGrid from "./BookGrid";
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';

@@ -65,13 +65,13 @@ const Resources = () => {
         <Container>
           {categories.map((category, index) => {
             return (
-              <div>
+              <div key={index}>
                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{category}</Typography>
                 <List sx={{ pb: 4, pt : 0 }}>
                   {urls[index].map((listing, index) => {
                     {counter++;}
                     return (
-                      <ListItem key={index} sx={{ px: 0 }}>
+                      <ListItem key={counter} sx={{ px: 0 }}>
                         <ListItemIcon>
                           <Typography className={classes.numbers}>
                             {("00" + counter).slice(-2)}

@@ -65,12 +65,12 @@ class MyFirstGrid extends React.Component {
     const { classes } = this.props
     const { error, isLoaded, books } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <Container maxWidth="xl">Error: {error.message}</Container>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <Container maxWidth="xl">Loading...</Container>;
     } else {
       return (
-        <Container maxWidth="xl" disableGutters>
+        <Container maxWidth="xl">
           <Button 
             variant="outlined"
             style={{fontFamily: "'Nunito', sans-serif"}}
