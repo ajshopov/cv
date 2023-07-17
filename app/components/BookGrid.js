@@ -70,29 +70,31 @@ class MyFirstGrid extends React.Component {
       return <Container maxWidth="xl">Loading...</Container>;
     } else {
       return (
-        <Container maxWidth="xl">
-          <Button 
-            variant="outlined"
-            style={{fontFamily: "'Nunito', sans-serif"}}
-            onClick={() => this.resetLayout()}>Reset Layout</Button>
-          <ResponsiveGridLayout
-            layouts={this.state.layouts}
-            onLayoutChange={(layout, layouts) =>
-              this.onLayoutChange(layout, layouts)
-            }
-            rowHeight={60}
-            width={1536}
-            compactType={null}
-            breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-            cols={{ lg: 10, md: 8, sm: 6, xs: 4, xxs: 2 }}
-          >
-            {books.map((entry, index) => (
-              <div key={index} data-grid={{ x: index, y: 0, w: 1, h: 3 }}>
-                <img className={classes.gridImage} src={`https://covers.openlibrary.org/b/id/${entry.work.cover_id}-L.jpg`}/>
-              </div>
-            ))}
-          </ResponsiveGridLayout>
-        </Container>
+          <Container maxWidth="xl">
+            <Button
+              variant="contained"
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+              onClick={() => this.resetLayout()}
+            >
+              Reset Grid Layout
+            </Button>
+            <ResponsiveGridLayout
+              layouts={this.state.layouts}
+              onLayoutChange={(layout, layouts) =>
+                this.onLayoutChange(layout, layouts)
+              }
+              rowHeight={60}
+              compactType={null}
+              breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+              cols={{ lg: 10, md: 8, sm: 6, xs: 4, xxs: 2 }}
+            >
+              {books.map((entry, index) => (
+                <div key={index} data-grid={{ x: index, y: 0, w: 1, h: 3 }}>
+                  <img className={classes.gridImage} src={`https://covers.openlibrary.org/b/id/${entry.work.cover_id}-L.jpg`}/>
+                </div>
+              ))}
+            </ResponsiveGridLayout>
+          </Container>
       );
     }
   }

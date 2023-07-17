@@ -61,8 +61,7 @@ const Resources = () => {
           </Typography>
         </Container>
       </Container>
-      <Container maxWidth="md" className={classes.resourceList}>
-        <Container>
+      <Container maxWidth="sm" className={classes.resourceList}>
           {categories.map((category, index) => {
             return (
               <div key={index}>
@@ -98,7 +97,6 @@ const Resources = () => {
               </div>
             );
           })}
-          </Container>
       </Container>
     </main>
   );

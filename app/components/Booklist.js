@@ -56,9 +56,27 @@ const Booklist = () => {
             Books
           </Typography>
           <Typography variant="h5" className={classes.intro}>
-          A selection of tech, business and self-improvement books that have shaped my thinking.
+            A selection of books that have influenced my thinking.
           </Typography>
         </Container>
+      </Container>
+      <Container maxWidth="sm" sx={{ mb: 3 }}>
+        <Typography>A resizable and draggable grid built using&nbsp;
+          <Link
+            rel="noopener noreferrer"
+            color="inherit"
+            target="_blank"
+            href="https://github.com/react-grid-layout/react-grid-layout">
+            react-grid-layout
+          </Link> that fetches my read books list from the&nbsp;
+          <Link
+            rel="noopener noreferrer"
+            color="inherit"
+            target="_blank"
+            href="https://openlibrary.org/developers/api">
+            Open Library API
+          </Link>.
+        </Typography>
       </Container>
       <BookGrid />
       {/* <Container maxWidth="md" className={classes.booklist}>
