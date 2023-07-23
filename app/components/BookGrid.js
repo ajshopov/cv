@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
 import startingTemplate from "../../lib/gridInitialLayout";
+import BarLoader from "react-spinners/BarLoader";
 
 
 const styles = {
@@ -67,7 +68,7 @@ class MyFirstGrid extends React.Component {
     if (error) {
       return <Container maxWidth="xl">Error: {error.message}</Container>;
     } else if (!isLoaded) {
-      return <Container maxWidth="xl">Loading...</Container>;
+      return <Container maxWidth="xl"><BarLoader color="#36d7b7"/></Container>;
     } else {
       return (
           <Container maxWidth="xl">
