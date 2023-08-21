@@ -24,11 +24,6 @@ const useStyles = makeStyles({
       fontSize: '1.25rem'
     }
   },
-  resourceList: {
-    '@media (max-width: 599px)': {
-      padding: '0'
-    }
-  },
   numbers: {
     fontFamily: "'Playfair Display', serif",
     fontSize: '2rem',
