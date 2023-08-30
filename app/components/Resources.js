@@ -52,7 +52,7 @@ const Resources = () => {
             Resources
           </Typography>
           <Typography variant="h5" className={classes.intro}>
-            A collection of links to resources, tools and articles that I've found useful.
+            A working collection of links to resources, tools and articles that I've found useful.
           </Typography>
         </Container>
       </Container>
