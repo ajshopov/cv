@@ -65,6 +65,7 @@ const tags = [
   'SCSS',
   'Bootstrap',
   'MaterializeCSS',
+  'Three JS',
   'Jade',
   'Slim',
   'Ruby',
