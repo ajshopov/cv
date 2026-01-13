@@ -63,6 +63,8 @@ const tags = [
   'React',
   'Redux',
   'SCSS',
+  'Wordpress',
+  'Wireframing',
   'Bootstrap',
   'MaterializeCSS',
   'Three JS',
