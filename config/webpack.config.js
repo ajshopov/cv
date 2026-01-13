@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const ROOT = path.join(__dirname, '../')
 
@@ -70,8 +71,30 @@ module.exports = (env = {}) => {
     }
   }
 
+  const prod = {
+    plugins: common.plugins.concat([
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            warnings: false,
+            drop_console: true
+          },
+          output: {
+            comments: false
+          }
+        },
+        sourceMap: false
+      })
+    ])
+  }
+
   if (env.dev)
     return Object.assign({}, common, dev)
+  else if (env.prod)
+    return Object.assign({}, common, prod)
   else
     return Object.assign({}, common)
 
